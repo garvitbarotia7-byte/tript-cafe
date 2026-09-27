@@ -10,8 +10,13 @@ import { Reserve } from '@/components/sections/Reserve';
 import { MenuPage } from '@/pages/MenuPage';
 
 function isMenuRoute() {
-  const path = window.location.pathname.toLowerCase();
-  return path === '/menu' || path === '/menu/' || path.endsWith('/menu');
+  const hash = (window.location.hash || '').toLowerCase();
+  const path = (window.location.pathname || '').toLowerCase().replace(/\/+$/, '');
+
+  const menuHash = hash === '#/menu' || hash === '#menu' || hash.startsWith('#/menu/') || hash.startsWith('#menu/');
+  const menuPath = path === '/menu' || path === '/tript-cafe/menu' || path.endsWith('/menu');
+
+  return menuHash || menuPath;
 }
 
 function App() {
