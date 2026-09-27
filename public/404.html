@@ -1,0 +1,47 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Redirecting…</title>
+        <script type="text/javascript">
+        (() => {
+            const path = window.location.pathname;
+            const hash = window.location.hash;
+
+            if (path === '/' || path === '') {
+            return;
+            }
+
+            const segments = path.split('/').filter(Boolean);
+            const repoName = segments[0] || '';
+            const targetPath = repoName ? `/${repoName}` : '/';
+
+            if (segments.includes('menu')) {
+            const nextUrl = new URL(window.location.href);
+            nextUrl.pathname = targetPath;
+            nextUrl.hash = '#/menu';
+            nextUrl.search = '';
+            window.location.replace(nextUrl.toString());
+            return;
+            }
+
+            if (hash && hash.startsWith('#/') && segments.length > 0) {
+            const nextUrl = new URL(window.location.href);
+            nextUrl.pathname = targetPath;
+            nextUrl.hash = hash;
+            nextUrl.search = '';
+            window.location.replace(nextUrl.toString());
+            return;
+            }
+
+            const nextUrl = new URL(window.location.href);
+            nextUrl.pathname = targetPath;
+            nextUrl.hash = '';
+            nextUrl.search = '';
+            window.location.replace(nextUrl.toString());
+        })();
+        </script>
+    </head>
+    <body></body>
+    </html>
