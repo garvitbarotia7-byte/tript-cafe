@@ -7,14 +7,14 @@ interface NavLink {
 }
 
 const homeLinks: NavLink[] = [
-  { label: 'Gallery', href: '/#gallery' },
-  { label: 'Menu Highlights', href: '/#highlights' },
-  { label: 'Story', href: '/#story' },
-  { label: 'Visit', href: '/#visit' },
-  // { label: 'Reserve', href: '/#reserve' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Menu Highlights', href: '#highlights' },
+  { label: 'Story', href: '#story' },
+  { label: 'Visit', href: '#visit' },
+  // { label: 'Reserve', href: '#reserve' },
 ];
 
-const menuLinks: NavLink[] = [{ label: 'Home', href: '/' }];
+const menuLinks: NavLink[] = [{ label: 'Home', href: './' }];
 
 export function Navbar({ variant = 'home' }: { variant?: 'home' | 'menu' }) {
   const [scrolled, setScrolled] = useState(false);
@@ -31,14 +31,27 @@ export function Navbar({ variant = 'home' }: { variant?: 'home' | 'menu' }) {
 
   const handleNav = (href: string) => {
     setOpen(false);
-    if (href.startsWith('/#')) {
-      const id = href.slice(2);
+
+    if (href.startsWith('#')) {
+      const id = href.slice(1);
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
         return;
       }
+
+      if (id === 'menu') {
+        window.location.hash = '/menu';
+        return;
+      }
     }
+
+    if (href === './' || href === '/') {
+      window.location.hash = '';
+      window.location.href = './';
+      return;
+    }
+
     window.location.href = href;
   };
 
@@ -52,10 +65,10 @@ export function Navbar({ variant = 'home' }: { variant?: 'home' | 'menu' }) {
     >
       <nav className="container-wide flex items-center justify-between py-4 md:py-5">
         <a
-          href="/"
+          href="./"
           onClick={(e) => {
             e.preventDefault();
-            handleNav('/');
+            handleNav('./');
           }}
           className={`font-display text-2xl tracking-tight transition-colors duration-300 ${
             scrolled ? 'text-ink-900' : 'text-cream-50'
@@ -80,7 +93,7 @@ export function Navbar({ variant = 'home' }: { variant?: 'home' | 'menu' }) {
             </button>
           ))}
           <button
-            onClick={() => handleNav('/#reserve')}
+            onClick={() => handleNav('#reserve')}
             className="btn-primary !py-2.5 !px-6"
           >
             Reserve
@@ -108,7 +121,7 @@ export function Navbar({ variant = 'home' }: { variant?: 'home' | 'menu' }) {
                 {link.label}
               </button>
             ))}
-            <button onClick={() => handleNav('/#reserve')} className="btn-primary mt-2">
+            <button onClick={() => handleNav('#reserve')} className="btn-primary mt-2">
               Reserve a Table
             </button>
           </div>
