@@ -1,5 +1,4 @@
 import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
-import { InkArt } from './InkArt';
 
 export function Footer() {
   return (
