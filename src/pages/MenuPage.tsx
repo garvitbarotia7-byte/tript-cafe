@@ -95,8 +95,8 @@ export function MenuPage() {
           <Reveal>
             <h2 className="text-3xl text-ink-900 md:text-4xl">Hungry yet?</h2>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
-              <a href="/#reserve" className="btn-primary">Reserve a Table</a>
-              <a href="/" className="btn-ghost">
+              <a href="./#reserve" className="btn-primary">Reserve a Table</a>
+              <a href="./" className="btn-ghost">
                 <ArrowLeft size={16} />
                 Back home
               </a>
