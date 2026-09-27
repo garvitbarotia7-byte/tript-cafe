@@ -63,22 +63,22 @@ export function Footer() {
             <p className="eyebrow !text-clay-400">Explore</p>
             <ul className="mt-4 space-y-3 text-sm text-cream-100/70">
               <li>
-                <a href="/#gallery" className="transition-colors hover:text-clay-300">
+                <a href="#gallery" className="transition-colors hover:text-clay-300">
                   Gallery
                 </a>
               </li>
               <li>
-                <a href="/menu" className="transition-colors hover:text-clay-300">
+                <a href="./#/menu" className="transition-colors hover:text-clay-300">
                   Full Menu
                 </a>
               </li>
               <li>
-                <a href="/#story" className="transition-colors hover:text-clay-300">
+                <a href="#story" className="transition-colors hover:text-clay-300">
                   Our Story
                 </a>
               </li>
               <li>
-                <a href="/#reserve" className="transition-colors hover:text-clay-300">
+                <a href="#reserve" className="transition-colors hover:text-clay-300">
                   Reserve a Table
                 </a>
               </li>
