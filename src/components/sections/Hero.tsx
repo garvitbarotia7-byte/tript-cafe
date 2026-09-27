@@ -44,11 +44,11 @@ export function Hero() {
           </div>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="/#reserve" className="btn-primary">
+            <a href="#reserve" className="btn-primary">
               Reserve a Table
             </a>
             <a
-              href="/menu"
+              href="./#/menu"
               className="btn-ghost !border-cream-50/30 !text-cream-50 hover:!border-clay-300 hover:!text-clay-200"
             >
               View Full Menu
